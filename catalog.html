@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — Orbit</title>
+  <meta name="description" content="Каталог учебного магазина Orbit. Поиск, категории и сортировка товаров.">
+  <link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="catalog">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="topbar">Техника Apple. Ваши идеи. &nbsp; / &nbsp; Учебный магазин</div>
+  <header class="site-header" id="header"></header>
+  <main class="container page" id="main">
+    <p class="breadcrumb"><a href="index.html">Главная</a> / Каталог</p>
+    <p class="eyebrow">Ваша следующая любимая вещь</p><h1>Каталог техники.</h1><p class="lead">Шесть устройств. Множество возможностей.</p>
+    <div class="filters">
+      <label>Поиск по названию<input id="search" type="search" placeholder="Например, iPhone" autocomplete="off"></label>
+      <label>Категория<select id="category"><option value="all">Все устройства</option value="iPhone">iPhone</option><option value="Mac">Mac</option><option value="iPad">iPad</option><option value="Watch">Watch</option><option value="AirPods">AirPods</option></select></label>
+      <label>Сортировка<select id="sort"><option value="default">По умолчанию</option><option value="cheap">Сначала дешевле</option><option value="expensive">Сначала дороже</option></select></label>
+    </div>
+    <p class="results-count" id="results-count" role="status"></p>
+    <div class="product-grid catalog-grid" id="catalog-grid"></div>
+    <p class="muted">Демонстрационные цены. Фотографии могут показывать несколько устройств или цветов; цена указана за один товар выбранной конфигурации.</p>
+  </main>
+  <footer class="site-footer" id="footer"></footer>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <noscript><p>Включите JavaScript: каталог и корзина используют его для работы.</p></noscript>
+</body>
+</html>
