@@ -1,0 +1,306 @@
+/* Общие переменные цветов и размеров: меняются в одном месте для всего сайта. */
+:root { --ink: #171b2a; --muted: #717784; --blue: #3159ef; --line: #e5e8ef; --paper: #f5f6f8; --radius: 22px; }
+/* Указанная ширина элемента включает его рамки и внутренние отступы. */
+* { box-sizing: border-box; }
+/* Плавная прокрутка нужна для переходов по якорям. */
+html { scroll-behavior: smooth; }
+/* Убираем отступ браузера и задаём системный шрифт, который работает без интернета. */
+body { margin: 0; color: var(--ink); background: #fff; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+/* Ссылки наследуют цвет родителя и не подчёркиваются до наведения. */
+a { color: inherit; text-decoration: none; }
+/* Делаем состояние наведения на обычную текстовую ссылку заметным. */
+a:hover { color: var(--blue); }
+/* Картинки не выходят за ширину родителя; display убирает нижний зазор. */
+img { max-width: 100%; display: block; }
+/* Элементы формы используют тот же шрифт, что и остальная страница. */
+button, input, select, textarea { font: inherit; }
+/* Кнопки получают курсор в виде руки. */
+button { cursor: pointer; }
+/* Хорошо заметная обводка нужна при навигации клавиатурой. */
+:focus-visible { outline: 3px solid #3159ef; outline-offset: 4px; }
+/* Атрибут hidden всегда скрывает элемент, даже если другой класс задаёт display. */
+[hidden] { display: none !important; }
+/* Центрируем контент и оставляем поля по краям. */
+.container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+/* Верхняя информационная полоска. */
+.topbar { background: #171b2a; color: #e8eafa; text-align: center; padding: 7px 16px; font-size: 12px; letter-spacing: .04em; }
+/* Шапка остаётся видимой при прокрутке. */
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+/* Flexbox располагает логотип, меню и корзину в одну строку. */
+.nav-row { min-height: 78px; display: flex; align-items: center; gap: 30px; }
+/* Логотип — обычный текст, поэтому отдельная картинка не требуется. */
+.brand { display: inline-flex; align-items: center; font-size: 29px; font-weight: 800; letter-spacing: -1.8px; }
+/* Декоративный круг в логотипе. */
+.brand-mark { display: inline-grid; place-items: center; width: 30px; height: 30px; margin-right: 8px; border: 2px solid var(--blue); border-radius: 50%; font-size: 0; }
+/* Небольшая цветная точка после названия. */
+.brand-dot { color: var(--blue); }
+/* Основное меню занимает свободное место по центру. */
+nav { display: flex; gap: 30px; margin: auto; font-size: 14px; }
+/* Подсвечиваем ссылку текущей страницы. */
+nav a[aria-current], .cart-link[aria-current] { color: var(--blue); font-weight: 700; }
+/* Корзина и счётчик не переносятся на две строки. */
+.cart-link { display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; }
+/* Круглый синий счётчик товаров. */
+#cart-count { display: inline-grid; place-items: center; min-width: 25px; height: 25px; padding: 0 6px; background: var(--blue); color: white; border-radius: 20px; font-size: 12px; }
+/* На большом экране мобильная кнопка скрыта. */
+.menu-button { display: none; border: 0; background: var(--paper); border-radius: 8px; padding: 6px 10px; }
+/* Короткая подпись над заголовком. */
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 11px; font-weight: 700; color: var(--blue); }
+/* Сбрасываем лишние отступы заголовков и делаем плотные строки. */
+h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -.04em; }
+/* Размер заголовка плавно зависит от ширины экрана. */
+h1 { font-size: clamp(38px, 5.2vw, 68px); font-weight: 750; }
+/* Общий размер подзаголовка второго уровня. */
+h2 { font-size: clamp(26px, 3vw, 38px); }
+/* Уменьшенный заголовок карточки. */
+h3 { font-size: 21px; letter-spacing: -.025em; }
+/* Приглушённый текст описания. */
+.lead { font-size: 18px; color: var(--muted); max-width: 510px; }
+/* Общий вспомогательный цвет. */
+.muted { color: var(--muted); font-size: 14px; }
+/* Общая синяя кнопка; подходит и для ссылки. */
+.button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 13px 23px; border: 0; border-radius: 30px; background: var(--blue); color: #fff; font-weight: 600; font-size: 14px; }
+/* Наведение делает кнопку темнее. */
+.button:hover { background: #2345ca; color: #fff; }
+/* Отключённую кнопку нельзя нажать. */
+.button:disabled { background: #b8bfce; cursor: not-allowed; }
+/* Второстепенная ссылка рядом с кнопкой. */
+.text-link { font-size: 14px; color: var(--blue); font-weight: 600; }
+/* Главный рекламный блок — сетка из текста и изображения. */
+.hero { margin-top: 28px; display: grid; grid-template-columns: 1fr 1.05fr; min-height: 500px; background: #eff3ff; border-radius: 28px; overflow: hidden; }
+/* Воздух вокруг текста главного блока. */
+.hero-copy { padding: 58px 0 48px 48px; position: relative; z-index: 1; }
+/* Цветовой акцент внутри главного заголовка. */
+.hero h1 { font-size: clamp(36px, 4.2vw, 56px); }
+.hero h1 span { color: var(--blue); }
+/* Кнопки располагаются рядом и могут переноситься. */
+.hero-actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 28px; }
+/* Небольшая подпись под кнопками. */
+.hero-note { color: var(--muted); font-size: 12px; margin-top: 32px; }
+/* Изображение товара размещено на белом фоне. */
+.hero-visual { display: grid; align-items: center; background: #fff; position: relative; }
+/* Фото сохраняет пропорции и целиком помещается в рекламный блок. */
+.hero-visual img { width: 100%; height: 460px; object-fit: contain; }
+/* Плашка с названием товара поверх изображения. */
+.image-label { position: absolute; bottom: 24px; left: 24px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 20px; background: #fff; font-size: 12px; }
+/* Отступы секций. */
+.section { padding: 60px 0; }
+/* Заголовок секции и ссылка разведены к краям. */
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px; }
+/* Сетка категорий на главной. */
+.category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 26px 0 0; }
+/* Плитка категории с простой графикой на основе текста. */
+.category-tile { display: flex; justify-content: space-between; align-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 15px; font-size: 14px; font-weight: 600; }
+/* Стрелка категории окрашивается в синий цвет. */
+.category-tile span { color: var(--blue); }
+/* Светлый фон выделяет область популярных товаров. */
+.soft-section { background: var(--paper); }
+/* Четыре карточки в ряд на широком экране. */
+.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+/* Карточка товара с тонкой рамкой и мягкими углами. */
+.product-card { background: white; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+/* Лёгкое движение карточки при наведении. */
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px #19254a0c; }
+/* Одинаковая высота фотографий предотвращает скачки сетки. */
+.product-image { display: block; height: 200px; padding: 12px; background: white; }
+/* contain сохраняет весь товар в кадре. */
+.product-image img { width: 100%; height: 100%; object-fit: contain; }
+/* Внутренние отступы текстовой части карточки. */
+.card-info { padding: 8px 22px 22px; }
+/* Названия занимают одинаковую высоту и не смещают цены. */
+.card-info h3 { min-height: 48px; }
+/* Короткое описание карточки. */
+.card-description { color: var(--muted); font-size: 13px; margin: 10px 0 20px; }
+/* Цена слева, кнопка справа. */
+.card-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+/* Круглая кнопка добавления. */
+.add-button { width: 36px; height: 36px; border-radius: 50%; border: 0; color: var(--blue); background: #edf1ff; font-size: 24px; line-height: 1; }
+/* Дополнительное состояние кнопки при наведении. */
+.add-button:hover { background: var(--blue); color: white; }
+/* Двухколоночная промокарточка ноутбука. */
+.promo { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 26px; overflow: hidden; }
+/* Текст промокарточки. */
+.promo-copy { padding: 42px; background: #eef6f9; }
+/* Изображение ноутбука целиком помещается в свою половину. */
+.promo img { width: 100%; height: 310px; object-fit: contain; }
+/* Полоса преимуществ. */
+.benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid var(--line); padding: 32px 0; }
+/* Порядковый номер преимущества. */
+.benefits b { color: var(--blue); font-size: 12px; }
+/* Текст преимущества. */
+.benefits p { font-size: 13px; color: var(--muted); margin: 6px 0; }
+/* Поля главного содержимого внутренних страниц. */
+.page { padding-top: 38px; padding-bottom: 70px; min-height: 65vh; }
+/* Хлебные крошки помогают вернуться назад. */
+.breadcrumb { margin: 0 0 26px; font-size: 13px; color: var(--muted); }
+/* Панель поиска и фильтров. */
+.filters { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; padding: 24px; margin: 30px 0 16px; background: var(--paper); border-radius: 18px; }
+/* Подпись формы находится над полем. */
+label { display: block; font-size: 13px; font-weight: 600; }
+/* Общий вид полей ввода. */
+input, select, textarea { display: block; width: 100%; border: 1px solid #d8dce5; border-radius: 10px; padding: 11px 12px; margin-top: 6px; background: white; color: var(--ink); }
+/* Многострочное поле можно растягивать только по вертикали. */
+textarea { resize: vertical; min-height: 130px; }
+/* Счётчик результатов. */
+.results-count { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+/* В каталоге три карточки на строку. */
+.catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Увеличиваем изображение карточки в каталоге. */
+.catalog-grid .product-image { height: 250px; }
+/* Большая карточка товара: фото и описание. */
+.product-detail { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
+/* Картинка товара на отдельной светлой плоскости. */
+.detail-image { border: 1px solid var(--line); border-radius: 24px; padding: 20px; }
+/* Устанавливаем одинаковую высоту больших фото. */
+.detail-image img { width: 100%; height: 450px; object-fit: contain; }
+/* Заголовок товара меньше главного рекламного заголовка. */
+.detail-info h1 { font-size: 44px; }
+/* Статус наличия. */
+.stock { font-size: 13px; color: #287a58; }
+/* Выделенная крупная цена. */
+.detail-price { font-size: 32px; font-weight: 750; margin: 20px 0; }
+/* Подзаголовок характеристик. */
+.detail-info h2 { font-size: 22px; margin-top: 35px; }
+/* Убираем промежутки между рамками ячеек таблицы. */
+.specs { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+/* Рамки и отступы строк таблицы. */
+.specs th, .specs td { text-align: left; border-bottom: 1px solid var(--line); padding: 12px 0; }
+/* Названия характеристик менее контрастны, чем значения. */
+.specs th { font-weight: 400; color: var(--muted); width: 52%; }
+/* Корзина: список слева, итог справа. */
+.cart-layout { display: grid; grid-template-columns: 1fr 330px; gap: 28px; margin-top: 32px; align-items: start; }
+/* Одна строка корзины. */
+.cart-item { display: grid; grid-template-columns: 95px 1fr auto; align-items: center; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+/* Миниатюра в корзине. */
+.cart-item img { width: 95px; height: 90px; object-fit: contain; }
+/* Заголовок позиции корзины. */
+.cart-item h2 { font-size: 19px; }
+/* Сумма за позицию выравнивается справа. */
+.cart-item > strong { grid-column: 2 / 4; text-align: right; }
+/* Кнопка удаления выглядит как ссылка. */
+.text-button { padding: 0; border: 0; background: transparent; color: var(--blue); font-size: 13px; }
+/* Переключатель количества. */
+.quantity { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 4px; }
+/* Кнопки количества имеют удобную область нажатия. */
+.quantity button { width: 30px; height: 30px; border: 0; background: var(--paper); border-radius: 8px; }
+/* Блок итоговой суммы. */
+.summary { background: var(--paper); padding: 26px; border-radius: 22px; }
+/* Заголовок итога. */
+.summary h2 { font-size: 26px; }
+/* Строка итогов располагает подпись и число по краям. */
+.summary-row { display: flex; justify-content: space-between; padding: 13px 0; }
+/* Финальный итог отделён линией. */
+.summary-total { border-top: 1px solid var(--line); font-size: 20px; font-weight: 700; }
+/* Кнопка оформления занимает всю ширину блока. */
+.summary .button { width: 100%; margin-top: 12px; }
+/* Поля внутри форм разнесены друг от друга. */
+form label { margin-bottom: 16px; }
+/* Демонстрационная форма отделена от итоговой суммы. */
+#checkout-form { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 20px; }
+/* Сообщение об успехе остаётся на странице. */
+.success { color: #24714f; font-weight: 600; }
+/* Пустое состояние занимает всю сетку. */
+.empty-state { grid-column: 1 / -1; text-align: center; padding: 55px 24px; background: var(--paper); border-radius: 20px; }
+/* Колонки для доставки и контактов. */
+.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 34px; }
+/* Информационная карточка. */
+.info-card { border: 1px solid var(--line); border-radius: 22px; padding: 32px; }
+/* Заголовок информационной карточки. */
+.info-card h2 { font-size: 26px; }
+/* Стандартный текст внутри карточки. */
+.info-card p, .info-card li { color: var(--muted); font-size: 15px; }
+/* Список этапов с комфортным отступом. */
+.info-card li { margin: 10px 0; }
+/* Уведомление закреплено справа снизу. */
+.notice { position: fixed; bottom: 24px; right: 24px; z-index: 30; max-width: calc(100% - 48px); padding: 15px 22px; border-radius: 16px; background: var(--ink); color: white; box-shadow: 0 6px 30px #0002; }
+/* Ссылка пропуска навигации скрыта за верхним краем до фокуса клавиатурой. */
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 40; background: white; padding: 12px; }
+/* Показываем ссылку при нажатии Tab. */
+.skip-link:focus { top: 12px; }
+/* Светлый подвал с верхней границей. */
+.site-footer { background: #f8f9fb; border-top: 1px solid var(--line); padding: 40px 0 18px; }
+/* Три колонки подвала. */
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 36px; }
+/* Текст подвала менее контрастный и небольшой. */
+.footer-grid p, .footer-grid > div > a:not(.brand) { display: block; color: var(--muted); font-size: 13px; margin: 8px 0; }
+/* Нижняя полоса подвала. */
+.footer-bottom { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 18px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 11px; }
+/* Адаптация для планшетов и небольших ноутбуков. */
+@media (max-width: 960px) {
+  /* Две карточки вместо четырёх. */
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Уменьшаем отступ слева у рекламного текста. */
+  .hero-copy { padding: 38px 0 32px 30px; }
+  /* Уменьшаем расстояние между колонками товара. */
+  .product-detail { gap: 28px; }
+  /* Корзина становится одноколоночной. */
+  .cart-layout { grid-template-columns: 1fr; }
+  /* Меньше расстояние между ссылками навигации. */
+  nav { gap: 18px; }
+  /* Категории могут занимать несколько строк. */
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+}
+/* Адаптация для телефонов. */
+@media (max-width: 640px) {
+  /* Уменьшаем поля по краям. */
+  .container { width: calc(100% - 32px); }
+  /* Компактная шапка. */
+  .nav-row { min-height: 66px; gap: 14px; flex-wrap: wrap; }
+  /* Показываем кнопку мобильного меню. */
+  .menu-button { display: block; margin-left: auto; }
+  /* Меню скрыто до нажатия кнопки и занимает отдельную строку. */
+  nav { display: none; order: 4; width: 100%; margin: 0; padding: 12px 0 18px; flex-wrap: wrap; }
+  /* JavaScript добавляет класс open, после чего меню становится видимым. */
+  nav.open { display: flex; }
+  /* Содержимое сложных блоков располагается друг под другом. */
+  .hero, .promo, .product-detail, .info-grid, .filters, .footer-grid { grid-template-columns: 1fr; }
+  /* Поля рекламного текста на телефоне. */
+  .hero-copy { padding: 30px; }
+  /* Убираем минимальную высоту главного блока. */
+  .hero { min-height: 0; margin-top: 16px; }
+  /* Компактное изображение на телефоне. */
+  .hero-visual img { height: 300px; }
+  /* Уменьшаем вертикальные отступы секций. */
+  .section { padding: 38px 0; }
+  /* Две категории в строку. */
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Меньший зазор между карточками. */
+  .product-grid { gap: 12px; }
+  /* Снижаем высоту фото в карточке. */
+  .product-image, .catalog-grid .product-image { height: 155px; padding: 5px; }
+  /* Уменьшаем поля карточки товара. */
+  .card-info { padding: 5px 13px 16px; }
+  /* Название товара на телефоне. */
+  .card-info h3 { font-size: 17px; min-height: 40px; }
+  /* Цена и кнопка могут перейти на следующую строку на узком экране. */
+  .card-bottom { flex-wrap: wrap; font-size: 14px; }
+  /* Подпись карточки имеет одинаковую высоту. */
+  .card-description { min-height: 42px; }
+  /* Преимущества располагаются вертикально. */
+  .benefits { grid-template-columns: 1fr; gap: 18px; }
+  /* Меньше отступ в промоблоке. */
+  .promo-copy { padding: 28px; }
+  /* Фото большого товара на телефоне. */
+  .detail-image img { height: 300px; }
+  /* Заголовок большого товара на телефоне. */
+  .detail-info h1 { font-size: 36px; }
+  /* Поля основной страницы. */
+  .page { padding-top: 26px; padding-bottom: 40px; }
+  /* Уменьшаем миниатюру в корзине. */
+  .cart-item { grid-template-columns: 65px 1fr; gap: 14px; }
+  /* Размер миниатюры. */
+  .cart-item img { width: 65px; height: 70px; }
+  /* Количество переносится под описание. */
+  .quantity { grid-column: 2; justify-self: start; }
+  /* Сумма позиции находится под количеством. */
+  .cart-item > strong { grid-column: 2; }
+  /* Компактные информационные карточки. */
+  .info-card { padding: 24px; }
+  /* Нижняя строка подвала становится вертикальной. */
+  .footer-bottom { flex-direction: column; }
+}
+/* Учитываем настройку пользователя, отключающую движение интерфейса. */
+@media (prefers-reduced-motion: reduce) {
+  /* Отключаем плавную прокрутку и анимацию карточек. */
+  html { scroll-behavior: auto; } .product-card { transition: none; }
+}

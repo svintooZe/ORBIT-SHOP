@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Главная — Orbit</title>
+  <meta name="description" content="Учебный магазин техники Apple: iPhone, Mac, iPad и аксессуары.">
+  <link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="topbar">Техника Apple. Ваши идеи. &nbsp; / &nbsp; Учебный магазин</div>
+  <header class="site-header" id="header"></header>
+  <main id="main">
+    <div class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Маленькая техника. Большие возможности.</p>
+          <h1 id="hero-title">Ближе к тому,<br>что <span>вдохновляет.</span></h1>
+          <p class="lead">Ваш новый iPhone. Первый Mac. Или просто любимая музыка — выбирайте своё в Orbit.</p>
+          <div class="hero-actions"><a class="button" href="catalog.html">Выбрать технику ↗</a><a class="text-link" href="product.html?id=1">Знакомьтесь: iPhone 16 →</a></div>
+          <p class="hero-note">01 / Подборка устройств для работы, учёбы и жизни</p>
+        </div>
+        <div class="hero-visual"><img src="assets/iphone.jpg" alt="iPhone 16 и iPhone 16 Plus в цвете ультрамарин"><span class="image-label">iPhone 16 · Цвет имеет значение</span></div>
+      </section>
+      <div class="category-grid" aria-label="Категории товаров">
+        <a class="category-tile" href="catalog.html?category=iPhone">iPhone<span>↗</span></a>
+        <a class="category-tile" href="catalog.html?category=Mac">Mac<span>↗</span></a>
+        <a class="category-tile" href="catalog.html?category=iPad">iPad<span>↗</span></a>
+        <a class="category-tile" href="catalog.html?category=Watch">Watch<span>↗</span></a>
+        <a class="category-tile" href="catalog.html?category=AirPods">AirPods<span>↗</span></a>
+      </div>
+    </div>
+    <section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Всё начинается с выбора</p><h2>Найдите своё.</h2></div><a class="text-link" href="catalog.html">Весь каталог ↗</a></div><div class="product-grid" id="featured"></div></div></section>
+    <section class="section soft-section"><div class="container"><div class="promo"><div class="promo-copy"><p class="eyebrow">MacBook Air M4</p><h2>Легко брать с собой.<br>Легко делать больше.</h2><p class="lead">Для первых проектов и больших планов. Ваш рабочий стол теперь там, где вы.</p><a class="button" href="product.html?id=3">Посмотреть MacBook ↗</a></div><img src="assets/macbook.jpg" alt="MacBook Air M4" loading="lazy"></div></div></section>
+    <div class="container benefits"><div><b>01 / ВЫБИРАЙТЕ</b><h3>Ничего лишнего</h3><p>Понятный каталог и основные характеристики.</p></div><div><b>02 / СРАВНИВАЙТЕ</b><h3>В своём темпе</h3><p>Поиск, категории и сортировка по цене.</p></div><div><b>03 / СОХРАНЯЙТЕ</b><h3>Ваш выбор рядом</h3><p>Корзина сохраняется в вашем браузере.</p></div></div>
+  </main>
+  <footer class="site-footer" id="footer"></footer>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <noscript><p>Включите JavaScript: каталог и корзина используют его для работы.</p></noscript>
+</body>
+</html>

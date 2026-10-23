@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — Orbit</title>
+  <meta name="description" content="Учебная корзина: количество товаров, итоговая сумма и демонстрация оформления.">
+  <link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="cart">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="topbar">Техника Apple. Ваши идеи. &nbsp; / &nbsp; Учебный магазин</div>
+  <header class="site-header" id="header"></header>
+  <main class="container page" id="main">
+    <p class="breadcrumb"><a href="index.html">Главная</a> / Корзина</p>
+    <p class="eyebrow">Почти у вас</p><h1>Ваш выбор.</h1><p class="lead">Всё, что понравилось, в одном месте.</p>
+    <p id="order-result" class="success" role="status"></p>
+    <div class="cart-layout">
+      <div id="cart-items"></div>
+      <aside class="summary" aria-label="Итого по заказу">
+        <h2>Ваш заказ</h2><div class="summary-row"><span>Товаров</span><span id="summary-count">0</span></div>
+        <div class="summary-row"><span>Доставка</span><span>Бесплатно*</span></div><div class="summary-row summary-total"><span>Итого</span><span id="total">0 ₽</span></div>
+        <button class="button" id="checkout-button" type="button">Оформить учебный заказ ↗</button>
+        <p class="muted">*Условие демонстрации. Реальная доставка и списание денег не производятся.</p>
+        <form id="checkout-form" hidden>
+          <label>Ваше имя<input name="name" required minlength="2" maxlength="60" autocomplete="given-name" placeholder="Например, Антон"></label>
+          <label>Электронная почта<input name="email" type="email" required maxlength="120" autocomplete="email" placeholder="name@example.com"></label>
+          <button class="button" type="submit">Подтвердить</button><p class="muted">Можно использовать вымышленные данные. Они не сохраняются и никуда не отправляются.</p>
+        </form>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer" id="footer"></footer>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <noscript><p>Включите JavaScript: каталог и корзина используют его для работы.</p></noscript>
+</body>
+</html>
